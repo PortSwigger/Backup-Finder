@@ -90,6 +90,7 @@ public class HelpPanel extends javax.swing.JPanel {
 
         editorPane.setEditable(false);
         editorPane.setContentType("text/html"); // NOI18N
+        editorPane.putClientProperty("html.disable", null);
         jScrollPane7.setViewportView(editorPane);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);

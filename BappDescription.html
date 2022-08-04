@@ -1,0 +1,34 @@
+<p>A burp suite extension that reviews backup, old, temporary, and unreferenced files on the webserver for sensitive information.</p>
+
+<p>OWASP references:</p>
+<ul>
+	<li><strong>Classification:</strong> Web Application Security Testing &gt; 02-Configuration and Deployment Management Testing</li>
+	<li><strong>OTG v4:</strong> OWASP OTG-CONFIG-004</li>
+	<li><strong>WSTG:</strong> WSTG-CONF-04</li>
+</ul>
+
+<p>Why would I use this extension?</p>
+<p>As I analyzed some of "backup finder" tools, I realized that almost all of the available tools use only static payloads (they use built-in dictionaries) and they don't generate dynamic payloads based on target which is being tested.</p>
+<p>This extension will find all backup, old and temp files in this scenario:</p>
+<ul>
+	<li>/upload/index.php~ (Dynamic, finds possible extension and index file)</li>
+	<li>/upload/index.php.bkup (Dynamic, finds possible extension and index file)</li>
+	<li>/upload/upload.zip (Dynamic, using current dir name)</li>
+	<li>/upload/users/catalog.zip (Static, using dictionary)</li>
+	<li>/WeirdDirName.tar.gz (Dynamic, using child dir name)</li>
+	<li>/WeirdDirName/captcha.php.old (Dynamic, using current dir name)</li>
+</ul>
+
+<p>Quick Start</p>
+<ol>
+	<li>Select a request of a target host from any tab of the burp suite</li>
+	<li>In "backupFinder -&gt; Finder -&gt; options" tab, apply your configurations.</li>
+	<li>Go to "backupFinder -&gt; Finder -&gt; Finder" tab and click on "start" button.</li>
+</ol>
+
+<p>Fine Tuning (To have the best results)</p>
+<p>This extension uses the datas in the target tab (which are collected actively or passively) under the domain name that you call extension for as its feed. to have the best result, it's recommended that you first do these steps before starting the extension process:<p>
+<ul>
+	<li>Crawl the domain actively using the Burpsuite crawler. (in the target tab: right click on the domain -&gt; scan -&gt; crawl only)</li>
+	<li>If the application needs authentication, login via browser and submit the forms to see if there are more files or directories to be listed under our target.</li>
+</ul>

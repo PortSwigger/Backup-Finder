@@ -1,0 +1,13 @@
+Uuid: 466bc6cbf5bb4449b56af7bd9c0000ea
+ExtensionType: 1
+Name: Backup Finder
+RepoName: backup-finder
+ScreenVersion: 0.2
+SerialVersion: 1
+MinPlatformVersion: 0
+ProOnly: False
+Author: Moein Fatehi
+ShortDescription: Reviews backup, old, temporary and unreferenced files on web server for sensitive information
+EntryPoint: build/libs/backup-finder.jar
+BuildCommand: ./gradlew makeJar
+SupportedProducts: Pro, Community
